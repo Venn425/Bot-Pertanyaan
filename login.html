@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form Pertanyaan</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <h1 class="judul">Form Pertanyaan</h1>
+            <form id="form">
+                <label for="nama">Nama:</label><br>
+                <input class="nama" type="text" id="nama" placeholder="Nama" required><br><br>
+                <label for="email">Email:</label><br>
+                <input class="email" type="email" id="email" placeholder="Email" required><br><br>
+                <label for="pesan">Pertanyaan:</label><br>
+                <textarea class="pesan" id="pesan" placeholder="Pertanyaan" required></textarea><br><br>
+
+                <button type="submit">Kirim</button>
+                <div id="pesan-info" style="display:none;"></div>
+            </form>
+        </div>   
+    </div>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const data = {
+                nama: document.getElementById("nama").value,
+                email: document.getElementById("email").value,
+                pesan: document.getElementById("pesan").value
+            };
+
+            const res = await fetch("http://localhost:3000/pengaduan", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
+            const result = await res.json();
+            const pesanInfo = document.getElementById("pesan-info");
+            pesanInfo.textContent = result.message;
+            pesanInfo.style.display = "block";
+            pesanInfo.style.marginTop = "10px";
+            pesanInfo.style.padding = "10px";
+            pesanInfo.style.borderRadius = "6px";
+            pesanInfo.style.background = result.success ? "#d4edda" : "#f8d7da";
+            pesanInfo.style.color = result.success ? "#155724" : "#721c24";
+        });
+    </script>
+
+</body>
+
+</html>

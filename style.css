@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.7);
+    margin-bottom: 5px;
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: url("images/pexels-diva-30708629.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 110vh;
+    background: rgba(39, 39, 39, 0.4);
+}
+
+.container {
+    width: 500px;
+    background: rgba(255, 255, 255, 0.8); /* putih transparan, isi tetap solid */
+    border-radius: 10px;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+}
+
+.judul {
+    font-family: "Poppins", sans-serif ;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+button {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 30px;
+    font-size: 20px;    
+    background: rgba(255, 255, 255, 0.6);
+    color: black;
+    border: none;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 1);
+}
